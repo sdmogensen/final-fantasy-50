@@ -1,14 +1,6 @@
---[[
-    GD50
-    Pokemon
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 Textbox = Class{}
 
-function Textbox:init(x, y, width, height, text, font)
+function Textbox:init(x, y, width, height, text, numLines, font)
     self.panel = Panel(x, y, width, height)
     self.x = x
     self.y = y
@@ -16,6 +8,7 @@ function Textbox:init(x, y, width, height, text, font)
     self.height = height
 
     self.text = text
+    self.numLines = numLines
     self.font = font or gFonts['small']
     _, self.textChunks = self.font:getWrap(self.text, self.width - 12)
 
@@ -32,7 +25,7 @@ end
 function Textbox:nextChunks()
     local chunks = {}
 
-    for i = self.chunkCounter, self.chunkCounter + 2 do
+    for i = self.chunkCounter, self.chunkCounter + (self.numLines - 1) do
         table.insert(chunks, self.textChunks[i])
 
         -- if we've reached the number of total chunks, we can return
@@ -42,7 +35,7 @@ function Textbox:nextChunks()
         end
     end
 
-    self.chunkCounter = self.chunkCounter + 3
+    self.chunkCounter = self.chunkCounter + self.numLines
 
     return chunks
 end
@@ -50,7 +43,6 @@ end
 function Textbox:next()
     if self.endOfText then
         self.displayingChunks = {}
-        self.panel:toggle()
         self.closed = true
     else
         self.displayingChunks = self:nextChunks()
@@ -72,6 +64,6 @@ function Textbox:render()
 
     love.graphics.setFont(self.font)
     for i = 1, #self.displayingChunks do
-        love.graphics.print(self.displayingChunks[i], self.x + 3, self.y + 3 + (i - 1) * 16)
+        love.graphics.print(self.displayingChunks[i], self.x + 6, self.y + 3 + (i - 1) * 16)
     end
 end

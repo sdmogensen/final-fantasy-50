@@ -1,13 +1,3 @@
---[[
-    GD50
-    Legend of Zelda
-
-    -- constants --
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 VIRTUAL_WIDTH = 384
 VIRTUAL_HEIGHT = 216
 
@@ -16,6 +6,12 @@ WINDOW_HEIGHT = 720
 
 TILE_SIZE = 16
 
-PLAYER_SPEED = 60
+PLAYER_SPEED = 600
 
 COLLISION_LAYER = 'collisionLayer'
+
+FADE_SPEED = 0.4
+
+BATTLE_MENU_WIDTH = 80
+ABILITY_MENU_WIDTH = 110
+BATTLE_MENU_HEIGHT = 72

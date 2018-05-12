@@ -1,11 +1,3 @@
---[[
-    GD50
-    Pokemon
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 FadeState = Class{__includes = BaseState}
 
 function FadeState:init(color, opacity, time, onFadeComplete)
@@ -14,13 +6,14 @@ function FadeState:init(color, opacity, time, onFadeComplete)
     self.b = color.b
     self.opacity = opacity.from
     self.time = time
+    self.onFadeComplete = onFadeComplete or function() end
 
     Timer.tween(self.time, {
         [self] = {opacity = opacity.to}
     })
     :finish(function()
         gStateStack:pop()
-        onFadeComplete()
+        self.onFadeComplete()
     end)
 end
 

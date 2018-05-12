@@ -1,16 +1,4 @@
 --[[
-    GD50
-    Super Mario Bros. Remake
-
-    -- StartState Class --
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-
-    Helper functions for writing Match-3.
-]]
-
---[[
     Given an "atlas" (a texture with multiple sprites), as well as a
     width and a height for the tiles therein, split the texture into
     all of the quads by simply dividing it evenly.
