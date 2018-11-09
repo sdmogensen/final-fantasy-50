@@ -11,6 +11,8 @@ Just install Love2D and follow the directions from their website on how to run t
 
 https://love2d.org/
 
+Note: Requires LOVE 0.10.2 (Super Toast), it will not work with the latest versions.
+
 ## Directions for how to play
 
 In the overworld, press 'Enter/Return' or 'Space' to interact with people/objects.
