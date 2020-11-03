@@ -2,7 +2,7 @@
 
 This was my final project for CSCI E-23a Introduction to Game Development.
 
-cs50.harvard.edu/extension/games
+https://cs50.harvard.edu/extension/games
 
 ## How to install
 
